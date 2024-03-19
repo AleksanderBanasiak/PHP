@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="pl">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" href="{$app_url}/css/style.css">	
+</head>
+<body>
+
+<div class="header">
+	<h1>{$page_title|default:"Tytuł domyślny"}</h1>
+	<h2>{$page_header|default:"Tytuł domyślny"}</h1>
+</div>
+
+<div class="container">
+{block name=container} Domyślna treść zawartości .... {/block}
+</div><!-- content -->
+
+<div class="footer">
+	<p>
+{block name=footer} Domyślna treść stopki .... {/block}
+	</p>
+	
+</div>
+
+</body>
+</html>
