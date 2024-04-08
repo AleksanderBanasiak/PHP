@@ -1,0 +1,29 @@
+{extends file="../../templates/main.html"}
+
+{block name=footer}stopka{/block}
+
+{block name=container}
+
+<form action="{$conf->action_root}login" method="post">
+	<h1>Logowanie</h1><br />
+		<label for="login">login: </label>
+		<input id="login" type="text" name="login" value="{$user->login}" /><br /><br /> 
+		<label for="password">hasło: </label>
+		<input id="password" type="password" name="password" /><br /><br />
+	
+	<input type="submit" value="zaloguj"/>
+</form>	
+
+
+{if $messages->isError()}
+    <ol class="message">
+        {foreach $messages->getErrors() as $error}
+            <li>{$error}</li>
+        {/foreach}
+    </ol>
+{/if}
+
+
+
+
+{/block}

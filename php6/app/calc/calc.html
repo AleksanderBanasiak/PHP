@@ -1,0 +1,46 @@
+{extends file="../../templates/main.html"}
+
+{block name=footer}stopka{/block}
+
+{block name=container}
+
+
+<h1>Kalkulator kredytowy</h1>
+<a href="{$conf->app_root}/app/auth/logout.php">Wyloguj</a><br /><br />
+<form action="{$conf->action_root}calc" method="post">
+	<label for="amount">Kwota: </label>
+	<input id="amount" type="text" name="amount" value="{$form->amount}" />
+	<br />
+	<br />
+	
+	<label for="years">Na ile lat: </label>
+	<input id="years" type="text" name="years" value="{$form->years}" />
+	<br />
+	<br />
+
+	<label for="interest">Oprocentowanie: </label>
+	<input id="interest" type="text" name="interest" value="{$form->interest}" />
+	<br />
+	<br />
+
+	<input type="submit" value="Oblicz" />
+</form>	
+
+{if $messages->isError()}
+    <ol class="message">
+        {foreach $messages->getErrors() as $error}
+            <li>{$error}</li>
+        {/foreach}
+    </ol>
+{/if}
+
+
+{if isset($result->result)}
+	<h4>Wynik:</h4>
+	{$result->result}
+{/if}
+		
+
+
+
+{/block}
