@@ -84,7 +84,7 @@ public function calculate(){
 
 public function generateSmarty(){
 
-    getSmarty()->assign('page_title','Zadanie 5  Przestrzenie nazw');
+    getSmarty()->assign('page_title','Zadanie 6 Ochrona zasobów');
 	getSmarty()->assign('page_header','Wykonał Alekasnder Banasiak');
 
 
