@@ -14,13 +14,10 @@ $smarty = null;
 function &getSmarty(){
 	global $smarty;
 	if (!isset($smarty)){
-	
-		require_once 'libs/smarty/Smarty.class.php';
+		include_once 'libs/smarty/Smarty.class.php';
 		$smarty = new Smarty();	
-
 		$smarty->assign('conf',getConf());
 		$smarty->assign('msgs',getMessages());
-	
 		$smarty->setTemplateDir(array(
 			'one' => getConf()->root_path.'/app/view',
 			'two' => getConf()->root_path.'/app/view/templates'

@@ -84,7 +84,7 @@ public function calculate(){
 
 public function generateSmarty(){
 
-	getSmarty()->assign('user',unserialize($_SESSION['user']));
+	// getSmarty()->assign('user',unserialize($_SESSION['user']));
 
     getSmarty()->assign('page_title','Zadanie 6a Ochrona zasobów');
 	getSmarty()->assign('page_header','Wykonał Alekasnder Banasiak');

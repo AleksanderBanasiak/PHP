@@ -1,8 +1,4 @@
 <?php
-	function getFromRequest($param_name,$required=false,$required_message=null){
-		return getFrom($_REQUEST,$param_name,$required,$required_message);
-	}
-
 	function getFrom(&$source,&$idx,&$required,&$required_message){
 		if (isset($source[$idx])){
 			return $source[$idx];
@@ -11,23 +7,20 @@
 			return null;
 		}
 	}
-
-	
-	
-	
+	function getFromRequest($param_name,$required=false,$required_message=null){
+		return getFrom($_REQUEST,$param_name,$required,$required_message);
+	}
 	function forwardTo($action_name){
 		global $action;
 		$action = $action_name;
 		include getConf()->root_path."/controll.php";
 		exit;
-	}
-	
-	
+	}	
 	function addRole($role){
 		getConf()->roles [$role] = true;
 		$_SESSION['_roles'] = serialize(getConf()->roles);
 	}
-	
+		
 	function inRole($role){
 		return isset(getConf()->roles[$role]);
 	}

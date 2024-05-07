@@ -4,7 +4,7 @@ getConf()->login_action = 'login';
 
     switch ($action) {
         default :
-		control('app\\controllers', 'CalcController', 'generateSmarty', ['user','admin']);
+		control('app\\controllers', 'CalcController', 'calculate', ['user','admin']);
 	case 'login': 
 		control('app\\controllers', 'LoginController',	'login');
 	case 'calc' : 
