@@ -57,7 +57,7 @@ public function validate(){
 	 return true;
 }
 
-public function calculate(){
+public function action_calc(){
 
     $this->getParams();
 		
@@ -80,32 +80,22 @@ public function calculate(){
     $this->generateSmarty();
 }
 
+public function action_calcShow(){
+	$this->generateSmarty();
+}
 
 
 
 public function generateSmarty(){
-
-	getSmarty()->assign('user',unserialize($_SESSION['user']));
-
     getSmarty()->assign('page_title','Zadanie 6b Routing');
 	getSmarty()->assign('page_header','Wykonał Alekasnder Banasiak');
-
-
 
     getSmarty()->assign('form',$this->form);
  
     getSmarty()->assign('result',$this->result);
  
-
-
     getSmarty()->display('calc.html');
 
-
-
 }
-
-
-
-
 }
 ?>

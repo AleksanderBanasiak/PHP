@@ -15,7 +15,7 @@ function &getSmarty(){
 	global $smarty;
 	if (!isset($smarty)){
 	
-		require_once 'libs/smarty/Smarty.class.php';
+		include_once 'libs/smarty/Smarty.class.php';
 		$smarty = new Smarty();	
 
 		$smarty->assign('conf',getConf());
@@ -50,4 +50,4 @@ session_start();
 $conf->roles = isset($_SESSION['_roles']) ? unserialize($_SESSION['_roles']) : array(); 
 
 
-$action = getFromRequest('action');
+$router->setAction( getFromRequest('action') );

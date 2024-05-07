@@ -20,7 +20,7 @@ use app\forms\User;
 
     
     public function validateUser(){
-       
+
         if (!(isset($this->user->login) && isset($this->user->password))) return false;
 		
         if ( $this->user->login == "") getMessages()->addError('Nie podano loginu');
@@ -30,25 +30,20 @@ use app\forms\User;
         if ($this->user->login == "admin" && $this->user->password == "admin") {
             $userForm = new User($this->user->login, 'admin');
             $_SESSION['userForm'] = serialize($userForm);
-            addRole($userForm->role);
+            addRole('admin');
             return true;
         }
         if ($this->user->login == "user" && $this->user->password == "user") {
             $userForm = new User($this->user->login, 'user');
             $_SESSION['userForm'] = serialize($userForm);
-            addRole($userForm->role);
+            addRole('user');
             return true;
         }
 	    return false; 
     }
 
-    public function action_login(){
-
-        $this->generateSmartyForUser();
-    }
-
     
-    public function login(){
+    public function action_login(){
         $this->getUserParams();
         if($this->validateUser()){
             header("Location: ".getConf()->app_url);
@@ -56,7 +51,7 @@ use app\forms\User;
         $this->generateSmartyForUser();
     }
 
-    public function logout(){
+    public function action_logout(){
 		session_destroy();
 		$this->generateSmartyForUser();		 
 	}
